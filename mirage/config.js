@@ -1,5 +1,6 @@
 export default function () {
   this.timing = 0;
+  this.logging = true;
 
   this.get('/pages', ({ pages }, req) => {
     if (req.queryParams.firstPage === 'true') {
@@ -10,4 +11,6 @@ export default function () {
   });
 
   this.get('/pages/:id');
+  this.get('/videos/:id');
+  this.get('/questions/:id');
 }

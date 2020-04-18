@@ -1,1 +1,11 @@
-{{outlet}}
+<div>
+  <h2>PROCEED PAGE</h2>
+  <p>
+    Page id: {{@model.page.id}}<br>
+    Next Page id: {{@model.nextPage.id}}<br>
+    Previous Page id: {{@model.previousPage.id}}<br>
+  </p>
+
+  <LinkToPage @page={{@model.nextPage}}>Next</LinkToPage>
+  <LinkToPage @page={{@model.previousPage}}>Prev</LinkToPage>
+</div>

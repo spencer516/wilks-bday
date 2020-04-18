@@ -1,0 +1,11 @@
+{{#if @page}}
+  {{#if @page.isFirstPage}}
+    <LinkTo @route="index" ...attributes>
+      {{yield}}
+    </LinkTo>
+  {{else}}
+    <LinkTo @route={{this.pageRoute}} @model={{@page.id}} ...attributes>
+      {{yield}}
+    </LinkTo>
+  {{/if}}
+{{/if}}

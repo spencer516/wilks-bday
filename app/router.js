@@ -6,8 +6,8 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function() {
-  this.route('question-page');
-  this.route('video-page');
-  this.route('proceed-page');
+Router.map(function () {
+  this.route('question-page', { path: 'question/:id' });
+  this.route('video-page', { path: 'video/:id' });
+  this.route('proceed-page', { path: 'proceed/:id' });
 });
