@@ -6,7 +6,9 @@
     Previous Page id: {{@model.previousPage.id}}<br>
     Video id: {{@model.page.video.id}}<br>
   </p>
+</div>
 
+<div class="absolute left-0 bottom-0 p-4">
   <LinkToPage @page={{@model.nextPage}}>Next</LinkToPage>
   <LinkToPage @page={{@model.previousPage}}>Prev</LinkToPage>
 </div>
