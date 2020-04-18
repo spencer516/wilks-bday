@@ -2,6 +2,7 @@ import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class PageModel extends Model {
   @attr('string') pageType;
-  @belongsTo('page') previousPage;
-  @belongsTo('page') nextPage;
+  @attr('boolean') isFirstPage;
+  @belongsTo('page', { inverse: 'nextPage' }) previousPage;
+  @belongsTo('page', { inverse: 'previousPage' }) nextPage;
 }

@@ -1,9 +1,5 @@
-export default function(/* server */) {
+export default function (server) {
+  const firstPage = server.create('page', { isFirstPage: true });
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
-  */
-
-  // server.createList('post', 10);
+  server.create('page', { previousPage: firstPage });
 }
