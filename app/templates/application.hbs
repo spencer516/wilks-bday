@@ -1,5 +1,8 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-<WelcomePage />
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<main class="w-full h-full bg-blue-500 fixed overflow-auto flex flex-col align-center">
+  <h1 class="text-center font-sans text-white font-bold text-5xl p-4">
+    Wilks' Birthday Adventure
+  </h1>
+  <div class="flex-grow flex justify-center items-center">
+    {{outlet}}
+  </div>
+</main>

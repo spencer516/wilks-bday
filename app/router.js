@@ -7,4 +7,7 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('question-page');
+  this.route('video-page');
+  this.route('proceed-page');
 });
