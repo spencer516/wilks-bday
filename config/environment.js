@@ -1,8 +1,9 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   let ENV = {
     modulePrefix: 'wilks-bday',
+    'ember-cli-mirage': { enabled: true },
     environment,
     rootURL: '/',
     locationType: 'auto',
