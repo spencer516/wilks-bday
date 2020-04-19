@@ -13,4 +13,6 @@ export default function () {
   this.get('/pages/:id');
   this.get('/videos/:id');
   this.get('/questions/:id');
+
+  this.passthrough('https://vimeo.com/*');
 }

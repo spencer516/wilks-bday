@@ -4,7 +4,10 @@ export default function (server) {
   const page2 = server.create('page', {
     pageType: 'video',
     previousPage: page1,
-    video: server.create('video')
+    pageTitle: 'Video Number 1!',
+    video: server.create('video', {
+      vimeoId: 76311230
+    })
   });
 
   const page3 = server.create('page', {
@@ -22,8 +25,18 @@ export default function (server) {
     })
   });
 
+  const page4 = server.create('page', {
+    pageType: 'proceed',
+    pageTitle: 'Yay!!!',
+    pageText: 'Yes, that was correct!',
+    proceedText: 'NEXT VIDEO!',
+    previousPage: page3
+  });
+
   server.create('page', {
     pageType: 'proceed',
-    previousPage: page3
+    pageTitle: 'Birthday Jam',
+    pageText: 'ALLLLL DONE!',
+    previousPage: page4
   });
 }

@@ -1,11 +1,13 @@
-<div>
-  <h2>VIDEO PAGE</h2>
-  <p>
-    Page id: {{@model.page.id}}<br>
-    Next Page id: {{@model.nextPage.id}}<br>
-    Previous Page id: {{@model.previousPage.id}}<br>
-    Video id: {{@model.page.video.id}}<br>
-  </p>
+<div class="w-full h-full flex flex-col items-center items-stretch border-box p-4">
+  <h1 class="text-center font-bold text-6xl mb-4 flex-grow-0 flex-shrink-0">
+    {{or @model.page.pageTitle "Wilks' Birthday Adventure"}}
+  </h1>
+  <Video
+    @video={{@model.video}}
+    @onFinish={{this.videoFinished}}
+    class="flex-grow flex-shrink-0"
+  />
+  <h1 class="text-center font-bold text-6xl mb-4 flex-grow-0 flex-shrink-0">&nbsp;</h1>
 </div>
 
 <div class="absolute left-0 bottom-0 p-4">

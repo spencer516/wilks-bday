@@ -1,1 +1,5 @@
-{{yield}}
+<div
+  class="flex items-center justify-center {{if this.hideVideo 'hidden'}}"
+  {{did-insert (fn this.setupPlayer @video.vimeoId)}}
+  ...attributes
+></div>
