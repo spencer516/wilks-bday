@@ -25,9 +25,13 @@ export default class PageLoaderService extends Service {
     const page = await this.store.findRecord('page', id, { include: relatedKey });
     const nextPage = await this.getRelatedPage(page, 'nextPage');
     const previousPage = await this.getRelatedPage(page, 'previousPage');
+    const result = { page, nextPage, previousPage };
 
-    if (relatedKey) await this.loadRelatedType(page, relatedKey);
+    if (relatedKey) {
+      const relatedModel = await this.loadRelatedType(page, relatedKey);
+      return { ...result, [relatedKey]: relatedModel };
+    }
 
-    return { page, nextPage, previousPage };
+    return result;
   }
 }

@@ -1,13 +1,4 @@
-<div>
-  <h2>QUESTION PAGE</h2>
-  <p>
-    Page id: {{@model.page.id}}<br>
-    Next Page id: {{@model.nextPage.id}}<br>
-    Previous Page id: {{@model.previousPage.id}}<br>
-    Question id: {{@model.page.question.id}}<br>
-  </p>
-
-</div>
+<Question @question={{@model.question}} @onSuccess={{this.proceed}} />
 
 <div class="absolute left-0 bottom-0 p-4">
   <LinkToPage @page={{@model.nextPage}}>Next</LinkToPage>

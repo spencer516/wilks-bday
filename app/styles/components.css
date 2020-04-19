@@ -1,0 +1,74 @@
+@keyframes rotate_pacman_half_up  {
+  0% { transform: rotate(270deg); }
+  50% { transform: rotate(360deg); }
+  100% { transform: rotate(270deg); }
+}
+
+@keyframes rotate_pacman_half_down  {
+  0% { transform: rotate(90deg); }
+  50% { transform: rotate(0deg); }
+  100% { transform: rotate(90deg); }
+}
+
+ @keyframes pacman-balls {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  100% {
+    opacity: 1;
+    transform: translate(var(--x-offset), 0);;
+  }
+}
+
+.pacman {
+  position: relative;
+  --size: 50px;
+  --ballSize: 20px;
+  --duration: 2s;
+  --num-balls: 4;
+  --distance: 300px;
+  --bite-duration: calc(var(--duration) / var(--num-balls));
+  height: calc(var(--size) * 2);
+  width: var(--distance);
+}
+
+.pacman__mouth {
+  width: 0px;
+  height: 0px;
+  position: relative;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid white;
+  border-left: var(--size) solid white;
+  border-bottom: var(--size) solid white;
+  border-radius: var(--size);
+  left: 0;
+}
+
+.pacman__mouth-1 {
+  animation: rotate_pacman_half_up var(--bite-duration) 0s infinite;
+}
+
+.pacman__mouth-2 {
+  animation: rotate_pacman_half_down var(--bite-duration) 0s infinite;
+  margin-top: calc(-2 * var(--size));
+}
+
+.pacman__ball {
+  --y-offset: calc(var(--size) / -4);
+  --x-offset: calc(var(--distance) * -1 + var(--size));
+  /* --x-offset: calc(var(--distance) * -1); */
+  background: white;
+  width: var(--ballSize);
+  height: var(--ballSize);
+  border-radius: 100%;
+  position: absolute;
+  transform: translate(0, 0);
+  top: calc(var(--size) / 2 + var(--ballSize) / 2);
+  left: var(--distance);
+  opacity: 0;
+  animation: pacman-balls var(--duration) infinite linear;
+}
+
+.pacman__ball-0 { animation-delay: calc(var(--bite-duration) * 0); }
+.pacman__ball-1 { animation-delay: calc(var(--bite-duration) * 1); }
+.pacman__ball-2 { animation-delay: calc(var(--bite-duration) * 2); }
+.pacman__ball-3 { animation-delay: calc(var(--bite-duration) * 3); }

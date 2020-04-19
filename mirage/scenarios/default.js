@@ -12,12 +12,12 @@ export default function (server) {
     previousPage: page2,
     question: server.create('question', {
       questionText: 'Who is Taylor?',
-      answerIndex: 3,
+      answerOptions: [0, 3],
       images: [
-        '/public/images/taylor-question/image-1.jpeg',
-        '/public/images/taylor-question/image-2.jpeg',
-        '/public/images/taylor-question/image-3.jpeg',
-        '/public/images/taylor-question/image-4.jpeg'
+        '/images/taylor-question/image-1.jpeg',
+        '/images/taylor-question/image-2.jpeg',
+        '/images/taylor-question/image-3.jpeg',
+        '/images/taylor-question/image-4.jpeg'
       ]
     })
   });
