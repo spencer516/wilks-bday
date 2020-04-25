@@ -1,6 +1,6 @@
 <Question @question={{@model.question}} @onSuccess={{this.proceed}} />
 
 <div class="absolute left-0 bottom-0 p-4">
-  <LinkToPage @page={{@model.nextPage}}>Next</LinkToPage>
   <LinkToPage @page={{@model.previousPage}}>Prev</LinkToPage>
+  <LinkToPage @page={{@model.nextPage}}>Next</LinkToPage>
 </div>

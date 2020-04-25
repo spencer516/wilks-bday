@@ -34,7 +34,7 @@ export default class VideoComponent extends Component {
 
   @action
   setupPlayer(id, iframe) {
-    this.player = new Player(iframe, { id, playsinline: true });
+    this.player = new Player(iframe, { id, playsinline: true, height: 500 });
     this.loadVideo.perform(id, iframe).catch(() => { });
   }
 }
