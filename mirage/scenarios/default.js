@@ -1,49 +1,12 @@
-function makeChainer(server) {
-  return function chainPic(opts) {
-    const previousPage = server.create('page', opts);
-
-    return {
-      next(opts) {
-        return chainPic({ ...opts, previousPage });
-      },
-      continue() {
-        return chainPic({
-          previousPage,
-          pageType: 'proceed',
-          proceedText: 'Continue!',
-        })
-      },
-      video(vimeoId) {
-        return chainPic({
-          previousPage,
-          pageType: 'video',
-          video: server.create('video', { vimeoId })
-        })
-      },
-      question(questionText, answerOptions, images) {
-        return chainPic({
-          previousPage,
-          pageType: 'question',
-          question: server.create('question', {
-            questionText,
-            answerOptions,
-            images
-          })
-        })
-      }
-    }
-  }
-}
-
 export default function (server) {
   const chainer = makeChainer(server);
 
   chainer({ isFirstPage: true })
-    .video(76311230) // Placeholder
+    .video(4117716490) // Mer did. Please check
     .continue()
     .video(411598051)
     .question(
-      "In which house do Adam, Cici and Baby Cole live?",
+      "Where do Adam, Cici and Baby Cole live?",
       [1],
       [
         '/images/prompt2/1.jpg',
@@ -56,11 +19,14 @@ export default function (server) {
     .continue()
     .video(411598262)
     .question(
-      'Select your favorite photo with Nonny & Poppy!',
-      [0],
+      'Select your favorite photo with Nonny or Poppy!',
+      [0, 1, 2, 3],
       [
-        // TODO: This is a placeholder.
-        '/images/prompt2/1.jpg',
+        // Mer did. Check!
+        '/images/prompt3/nonny1.png',
+        '/images/prompt3/poppy1.jpg',
+        '/images/prompt3/poppy2.jpg',
+        '/images/prompt3/nonny2.png',
       ]
     )
     .video(410563329)
@@ -124,7 +90,7 @@ export default function (server) {
       [
         '/images/prompt8/bunnies.jpg',
         '/images/prompt8/cat.jpg',
-        '/images/prompt8/fish.jpg',
+        '/images/prompt8/dog.jpg',
         '/images/prompt8/turtle.jpg',
       ]
     )
@@ -143,9 +109,47 @@ export default function (server) {
     )
     .video(411599487)
     .continue()
-    .video(76311230) // Placeholder
+    .video(411716297) // Mer added. Double check.
     .next({
       pageType: 'proceed',
       pageText: 'YOU DID IT! HAPPY BIRTHDAY!'
     })
 }
+
+function makeChainer(server) {
+  return function chainPic(opts) {
+    const previousPage = server.create('page', opts);
+
+    return {
+      next(opts) {
+        return chainPic({ ...opts, previousPage });
+      },
+      continue() {
+        return chainPic({
+          previousPage,
+          pageType: 'proceed',
+          proceedText: 'Continue!',
+        })
+      },
+      video(vimeoId) {
+        return chainPic({
+          previousPage,
+          pageType: 'video',
+          video: server.create('video', { vimeoId })
+        })
+      },
+      question(questionText, answerOptions, images) {
+        return chainPic({
+          previousPage,
+          pageType: 'question',
+          question: server.create('question', {
+            questionText,
+            answerOptions,
+            images
+          })
+        })
+      }
+    }
+  }
+}
+
