@@ -1,40 +1,3 @@
-function makeChainer(server) {
-  return function chainPic(opts) {
-    const previousPage = server.create('page', opts);
-
-    return {
-      next(opts) {
-        return chainPic({ ...opts, previousPage });
-      },
-      continue() {
-        return chainPic({
-          previousPage,
-          pageType: 'proceed',
-          proceedText: 'Continue!',
-        })
-      },
-      video(vimeoId) {
-        return chainPic({
-          previousPage,
-          pageType: 'video',
-          video: server.create('video', { vimeoId })
-        })
-      },
-      question(questionText, answerOptions, images) {
-        return chainPic({
-          previousPage,
-          pageType: 'question',
-          question: server.create('question', {
-            questionText,
-            answerOptions,
-            images
-          })
-        })
-      }
-    }
-  }
-}
-
 export default function (server) {
   const chainer = makeChainer(server);
 
@@ -149,3 +112,41 @@ export default function (server) {
       pageText: 'YOU DID IT! HAPPY BIRTHDAY!'
     })
 }
+
+function makeChainer(server) {
+  return function chainPic(opts) {
+    const previousPage = server.create('page', opts);
+
+    return {
+      next(opts) {
+        return chainPic({ ...opts, previousPage });
+      },
+      continue() {
+        return chainPic({
+          previousPage,
+          pageType: 'proceed',
+          proceedText: 'Continue!',
+        })
+      },
+      video(vimeoId) {
+        return chainPic({
+          previousPage,
+          pageType: 'video',
+          video: server.create('video', { vimeoId })
+        })
+      },
+      question(questionText, answerOptions, images) {
+        return chainPic({
+          previousPage,
+          pageType: 'question',
+          question: server.create('question', {
+            questionText,
+            answerOptions,
+            images
+          })
+        })
+      }
+    }
+  }
+}
+
